@@ -41,7 +41,7 @@
                      <children>
                         <ScrollPane prefHeight="498.0" prefWidth="517.0">
                            <content>
-                              <FlowPane fx:id="flowPlaneId" prefHeight="498.0" prefWidth="515.0" />
+                              <FlowPane fx:id="recipeFlowPane" prefHeight="498.0" prefWidth="515.0" />
                            </content>
                         </ScrollPane>
                      </children>
