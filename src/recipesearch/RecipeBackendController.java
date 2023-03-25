@@ -16,6 +16,9 @@ public class RecipeBackendController {
     int maxTime;
 
     List cuisineList = Arrays.asList("Sverige", "Grekland", "Indien", "Asien", "Afrika", "Frankrike");
+    List difficultyList = Arrays.asList("Lätt", "Medel", "Svår");
+    List mainIndirientList = Arrays.asList("Kött", "Fisk", "Kyckling", "Vegetarisk");
+    List maxTimeList = Arrays.asList(10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150);
 
     RecipeDatabase db = RecipeDatabase.getSharedInstance();
     public List<Recipe>getRecipes(){
@@ -34,17 +37,41 @@ public class RecipeBackendController {
     }
 
     public void setDifficulty(String difficulty) {
-        this.difficulty = difficulty;
+        if(difficultyList.contains(difficulty)){
+            this.difficulty = difficulty;
+        }
+        else{
+            this.difficulty = null;
+        }
+
     }
     public void setMainIngridient(String mainIngridient){
-        this.mainIngridient = mainIngridient;
+        if(mainIndirientList.contains(mainIngridient)){
+            this.mainIngridient = mainIngridient;
+        }
+        else{
+            this.mainIngridient = null;
+        }
+
     }
 
     public void setMaxPrice(int maxPrice) {
-        this.maxPrice = maxPrice;
+        if(maxPrice <= 0){
+            this.maxPrice = maxPrice;
+        }
+        else{
+            this.maxPrice = 0;
+        }
+
     }
 
     public void setMaxTime(int maxTime) {
-        this.maxTime = maxTime;
+        if(maxTimeList.contains(maxTime)){
+            this.maxTime = maxTime;
+        }
+        else{
+            this.maxTime = 0;
+        }
+
     }
 }
