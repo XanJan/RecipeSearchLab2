@@ -33,7 +33,6 @@ public class RecipeBackendController {
         else{
             this.cuisine = null;
         }
-
     }
 
     public void setDifficulty(String difficulty) {
@@ -43,7 +42,6 @@ public class RecipeBackendController {
         else{
             this.difficulty = null;
         }
-
     }
     public void setMainIngridient(String mainIngridient){
         if(mainIndirientList.contains(mainIngridient)){
@@ -52,7 +50,6 @@ public class RecipeBackendController {
         else{
             this.mainIngridient = null;
         }
-
     }
 
     public void setMaxPrice(int maxPrice) {
@@ -62,7 +59,6 @@ public class RecipeBackendController {
         else{
             this.maxPrice = 0;
         }
-
     }
 
     public void setMaxTime(int maxTime) {
@@ -72,6 +68,5 @@ public class RecipeBackendController {
         else{
             this.maxTime = 0;
         }
-
     }
 }
