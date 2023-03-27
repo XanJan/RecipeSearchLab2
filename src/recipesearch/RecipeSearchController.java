@@ -8,8 +8,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ComboBoxBase;
+import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.ait.dat215.lab2.Recipe;
 import se.chalmers.ait.dat215.lab2.RecipeDatabase;
@@ -20,11 +19,29 @@ public class RecipeSearchController implements Initializable {
     private FlowPane recipeFlowPane;
     @FXML
     private ComboBox<String> mainIngredientId;
+    @FXML
+    private ComboBox<String> cuisineId;
+    @FXML
+    private RadioButton easyId;
+    @FXML
+    private RadioButton mediumId;
+    @FXML
+    private RadioButton hardId;
+    @FXML
+    private RadioButton allId;
+    @FXML
+    private Spinner<Integer> maxPriceId;
+    @FXML
+            private Slider maxTimeId;
+
+
 
     RecipeDatabase db = RecipeDatabase.getSharedInstance();
     List<RecipeListItem> recipeListItem = new ArrayList<>();
     RecipeBackendController RBC = new RecipeBackendController();
     private Map<String, RecipeListItem> recipeListItemMap = new HashMap<String, RecipeListItem>();
+    private ToggleGroup difficultyToggleGroup;
+    private int minValue = 0, maxValue = 1000, initialValue = 0, amountToStepBy = 100;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -32,6 +49,9 @@ public class RecipeSearchController implements Initializable {
         updateRecipeList();
 
         initilizeComboboxMainIng();
+        initilizeComboboxCuisine();
+        initilizeRadioButtons();
+        initilizeSpinnerMaxPrice();
     }
     private void updateRecipeList(){
         recipeFlowPane.getChildren().clear();
@@ -61,6 +81,90 @@ public class RecipeSearchController implements Initializable {
                     updateRecipeList();
                 }
             });
+        }
+        private void initilizeComboboxCuisine(){
+            cuisineId.getItems().addAll("Visa alla","Sverige", "Grekland", "Indien", "Asien", "Afrika", "Frankrike");
+            cuisineId.getSelectionModel().select("Visa alla");
+
+            cuisineId.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+                @Override
+                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                    RBC.setCuisine(newValue);
+                    updateRecipeList();
+                }
+            });
+
+        }
+
+        private void initilizeRadioButtons(){
+        difficultyToggleGroup = new ToggleGroup();
+
+        easyId.setToggleGroup(difficultyToggleGroup);
+        mediumId.setToggleGroup(difficultyToggleGroup);
+        hardId.setToggleGroup(difficultyToggleGroup);
+        allId.setToggleGroup(difficultyToggleGroup);
+
+        allId.setSelected(true);
+
+            difficultyToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+                @Override
+                public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+
+                    if (difficultyToggleGroup.getSelectedToggle() != null) {
+                        RadioButton selected = (RadioButton) difficultyToggleGroup.getSelectedToggle();
+                        RBC.setDifficulty(selected.getText());
+                        updateRecipeList();
+                    }
+                }
+            });
+        }
+
+        private void initilizeSpinnerMaxPrice(){
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minValue, maxValue, initialValue, amountToStepBy);
+        maxPriceId.setValueFactory(valueFactory);
+
+            maxPriceId.valueProperty().addListener(new ChangeListener<Integer>() {
+
+                @Override
+                public void changed(ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) {
+                    RBC.setMaxPrice(newValue);
+                    updateRecipeList();
+                }
+            });
+
+            maxPriceId.focusedProperty().addListener(new ChangeListener<Boolean>() {
+
+                @Override
+                public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+
+                    if(newValue){
+                        //focusgained - do nothing
+                    }
+                    else{
+                        Integer value = Integer.valueOf(maxPriceId.getEditor().getText());
+                        RBC.setMaxPrice(value);
+                        updateRecipeList();
+                    }
+
+                }
+            });
+
+        }
+
+        private void initilizeSliderMaxTime(){
+            /*maxTimeId.valueProperty().addListener(new ChangeListener<Number>() {
+
+                @Override
+                public void changed(ObservableValue<? extends Number> observable, Integer oldValue, Integer newValue) {
+                    if(newValue != null && !newValue.equals(oldValue) && !maxTimeId.isValueChanging()) {
+                        RBC.setMaxTime(newValue);
+                        updateRecipeList();
+                    }
+
+                }
+            });*/
         }
 
 

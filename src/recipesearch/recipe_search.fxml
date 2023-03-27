@@ -29,7 +29,7 @@
                         <RadioButton fx:id="allId" layoutX="117.0" layoutY="259.0" mnemonicParsing="false" text="Alla" />
                         <RadioButton fx:id="hardId" layoutX="117.0" layoutY="319.0" mnemonicParsing="false" text="Svår" />
                         <RadioButton fx:id="mediumId" layoutX="117.0" layoutY="298.0" mnemonicParsing="false" text="Medel" />
-                        <Label layoutX="14.0" layoutY="258.0" prefHeight="18.0" prefWidth="123.0" text="Svårhetsgrad:" />
+                        <Label layoutX="14.0" layoutY="258.0" prefHeight="18.0" prefWidth="76.0" text="Svårhetsgrad:" />
                         <Spinner fx:id="maxPriceId" layoutX="114.0" layoutY="365.0" />
                         <Label alignment="CENTER_RIGHT" layoutX="6.0" layoutY="368.0" prefHeight="18.0" prefWidth="96.0" text="Maxpris:" />
                         <Slider fx:id="maxTimeId" layoutX="118.0" layoutY="427.0" />
