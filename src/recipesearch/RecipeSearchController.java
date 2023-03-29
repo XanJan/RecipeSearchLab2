@@ -32,7 +32,9 @@ public class RecipeSearchController implements Initializable {
     @FXML
     private Spinner<Integer> maxPriceId;
     @FXML
-            private Slider maxTimeId;
+    private Slider maxTimeId;
+    @FXML
+    private Label maxTimeTextId;
 
 
 
@@ -52,7 +54,10 @@ public class RecipeSearchController implements Initializable {
         initilizeComboboxCuisine();
         initilizeRadioButtons();
         initilizeSpinnerMaxPrice();
+        initilizeSliderMaxTime();
     }
+
+
     private void updateRecipeList(){
         recipeFlowPane.getChildren().clear();
         List<Recipe> recipesList = RBC.getRecipes();
@@ -154,17 +159,23 @@ public class RecipeSearchController implements Initializable {
         }
 
         private void initilizeSliderMaxTime(){
-            /*maxTimeId.valueProperty().addListener(new ChangeListener<Number>() {
+
+            maxTimeId.valueProperty().addListener(new ChangeListener<Number>() {
 
                 @Override
-                public void changed(ObservableValue<? extends Number> observable, Integer oldValue, Integer newValue) {
+                public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                    maxTimeTextId.setText(newValue.intValue() + " minuter");
                     if(newValue != null && !newValue.equals(oldValue) && !maxTimeId.isValueChanging()) {
-                        RBC.setMaxTime(newValue);
+                        RBC.setMaxTime(newValue.intValue());
+
                         updateRecipeList();
                     }
 
+
                 }
-            });*/
+            });
+
+
         }
 
 
