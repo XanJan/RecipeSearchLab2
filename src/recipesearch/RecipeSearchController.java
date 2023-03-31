@@ -9,6 +9,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.ait.dat215.lab2.Recipe;
 import se.chalmers.ait.dat215.lab2.RecipeDatabase;
@@ -35,6 +37,15 @@ public class RecipeSearchController implements Initializable {
     private Slider maxTimeId;
     @FXML
     private Label maxTimeTextId;
+    @FXML
+    private Label recipeNameDetailId;
+    @FXML
+    private ImageView recipeImageDetailId;
+    @FXML
+    private SplitPane searchPaneId;
+    @FXML
+    private AnchorPane recipeDetailPaneId;
+
 
 
 
@@ -176,6 +187,20 @@ public class RecipeSearchController implements Initializable {
             });
 
 
+        }
+
+        private void populateRecipeDetailView(Recipe recipe){
+            recipeNameDetailId.setText(recipe.getName());
+            recipeImageDetailId.setImage(recipe.getFXImage());
+        }
+
+        @FXML
+        public void closeRecipeView(){
+            searchPaneId.toFront();
+        }
+        public void openRecipeView(Recipe recipe){
+            populateRecipeDetailView(recipe);
+            recipeDetailPaneId.toFront();
         }
 
 
