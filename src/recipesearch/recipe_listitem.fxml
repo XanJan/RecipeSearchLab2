@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<fx:root onMouseClicked="#onClick" prefHeight="100.0" prefWidth="495.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root onMouseClicked="#onClick" prefHeight="100.0" prefWidth="495.0" styleClass="recipe-list-item" stylesheets="@recipe_search.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="recipeImageId" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -13,5 +13,27 @@
          </image>
       </ImageView>
       <Text fx:id="recipeLableId" layoutX="156.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stekt ägg" />
+      <ImageView fx:id="mainIngredient_listItem" fitHeight="33.0" fitWidth="34.0" layoutX="156.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/icon_main_chicken.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="flag_listItem" fitHeight="33.0" fitWidth="34.0" layoutX="105.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/icon_flag_sweden.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="difficulty_listItem" fitHeight="23.0" fitWidth="71.0" layoutX="199.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/icon_difficulty_medium.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="290.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/icon_time.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="time_listItem" layoutX="328.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="60 minuter" />
+      <Text fx:id="cost_listItem" layoutX="409.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="60 kr" />
    </children>
 </fx:root>

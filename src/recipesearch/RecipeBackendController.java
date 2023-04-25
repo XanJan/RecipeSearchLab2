@@ -1,5 +1,6 @@
 package recipesearch;
 
+import javafx.scene.image.Image;
 import se.chalmers.ait.dat215.lab2.Recipe;
 import se.chalmers.ait.dat215.lab2.RecipeDatabase;
 import se.chalmers.ait.dat215.lab2.SearchFilter;
@@ -69,6 +70,8 @@ public class RecipeBackendController {
             this.maxTime = 0;
         }
     }
+
+
 
 
 }

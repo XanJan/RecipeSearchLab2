@@ -1,6 +1,6 @@
 .text-normal{
     -fx-font-size: 13px;
-    -fx-font-family: "Avenir Book";
+    -fx-font-family: "Berlin Sans FB";
 }
 
 .text-smaller{
@@ -15,10 +15,32 @@
 
 #logo{
     -fx-font-size: 48px;
-    -fx-font-family: "Phosphate";
+    -fx-font-family: "Tw Cen MT Condensed";
 }
 
 #logo-twirl{
     -fx-font-size: 64px;
-    -fx-font-family: "SignPainter";
+    -fx-font-family: "Brush Script MT";
+}
+
+.recipe-list-item{
+    -fx-border-width: 1px;
+    -fx-border-color: #999999;
+    -fx-border-radius: 1px;
+    -fx-background-radius: 1px;
+}
+
+.recipe-list-item:hover{
+    -fx-background-color: #FCFCFC;
+}
+.recipe-list-item:pressed{
+    -fx-background-color: #D0D0D0;
+}
+
+.text-area .content {
+    -fx-background-color: -fx-background;
+}
+
+.text-area  {
+    -fx-background-color: -fx-background;
 }

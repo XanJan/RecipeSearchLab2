@@ -16,13 +16,24 @@ import java.io.IOException;
 
 public class RecipeListItem extends AnchorPane {
     private RecipeSearchController parentController;
+    private RecipeBackendController rbc;
     private Recipe recipe;
     @FXML
     private ImageView recipeImageId;
     @FXML
     private Text recipeLableId;
+    @FXML
+    private ImageView mainIngredient_listItem;
+    @FXML
+    private ImageView flag_listItem;
+    @FXML
+    private ImageView difficulty_listItem;
+    @FXML
+    private Text time_listItem;
+    @FXML
+    private Text cost_listItem;
 
-    public RecipeListItem(Recipe recipe, RecipeSearchController recipeSearchController){
+    public RecipeListItem(Recipe recipe, RecipeSearchController recipeSearchController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recipe_listitem.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -32,18 +43,28 @@ public class RecipeListItem extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-
-        this.recipe = recipe;
-        this.recipeImageId.setImage(recipe.getFXImage());
-        this.recipeLableId.setText(recipe.getName());
         this.parentController = recipeSearchController;
+        this.recipe = recipe;
+        this.recipeImageId.setImage(parentController.getSquareImage(recipe.getFXImage()));
+        this.recipeLableId.setText(recipe.getName());
+
+
+        this.flag_listItem.setImage(parentController.getCuisineImage(this.recipe.getCuisine()));
+        this.mainIngredient_listItem.setImage(parentController.getMainIngreidentImage(this.recipe.getMainIngredient()));
+        this.difficulty_listItem.setImage(parentController.getDifficulty(this.recipe.getDifficulty()));
+        this.time_listItem.setText(String.valueOf(this.recipe.getTime()) + " minuter");
+        this.cost_listItem.setText((String.valueOf(this.recipe.getPrice())) + " kr");
+
 
 
     }
+
+
     @FXML
-    protected void onClick(Event event){
+    protected void onClick(Event event) {
         parentController.openRecipeView(recipe);
     }
 
-}
 
+
+}
