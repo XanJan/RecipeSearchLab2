@@ -21,6 +21,8 @@
 #logo-twirl{
     -fx-font-size: 64px;
     -fx-font-family: "Brush Script MT";
+    -fx-rotate: -20;
+    -fx-text-fill: #FFAC33;
 }
 
 .recipe-list-item{

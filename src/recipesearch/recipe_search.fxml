@@ -19,6 +19,28 @@
    <children>
       <StackPane prefHeight="500.0" prefWidth="800.0">
          <children>
+            <AnchorPane fx:id="recipeDetailPaneId" onMouseClicked="#closeRecipeView" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0, 0, 0, 0.75);">
+               <children>
+                  <AnchorPane layoutX="38.0" layoutY="51.0" onMouseClicked="#mouseTrap" prefHeight="398.0" prefWidth="718.0" style="-fx-background-color: #FAFAFA;">
+                     <children>
+                        <Label fx:id="recipeNameDetailId" alignment="CENTER" layoutX="220.0" prefHeight="42.0" prefWidth="502.0" text="Receptnamn">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="recipeImageDetailId" fitHeight="163.0" fitWidth="222.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                        <TextArea fx:id="instructionId" editable="false" layoutX="244.0" layoutY="154.0" prefHeight="204.0" prefWidth="435.0" wrapText="true" />
+                        <TextArea fx:id="descriptionId" editable="false" layoutX="244.0" layoutY="42.0" prefHeight="108.0" prefWidth="435.0" wrapText="true" />
+                        <TextArea fx:id="ingredientListId" editable="false" layoutX="17.0" layoutY="182.0" prefHeight="175.0" prefWidth="222.0" wrapText="true" />
+                        <ImageView fx:id="closeImageView" fitHeight="26.0" fitWidth="30.0" layoutX="692.0" layoutY="3.0" onMouseClicked="#closeRecipeView" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" onMousePressed="#closeButtonMousePressed" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icon_close.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
             <SplitPane fx:id="searchPaneId" dividerPositions="0.35" prefHeight="500.0" prefWidth="800.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -58,28 +80,6 @@
                   </AnchorPane>
               </items>
             </SplitPane>
-            <AnchorPane fx:id="recipeDetailPaneId" onMouseClicked="#closeRecipeView" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0, 0, 0, 0.75);">
-               <children>
-                  <AnchorPane layoutX="38.0" layoutY="51.0" onMouseClicked="#mouseTrap" prefHeight="398.0" prefWidth="718.0" style="-fx-background-color: #FAFAFA;">
-                     <children>
-                        <Label fx:id="recipeNameDetailId" alignment="CENTER" layoutX="220.0" prefHeight="42.0" prefWidth="502.0" text="Receptnamn">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                        <ImageView fx:id="recipeImageDetailId" fitHeight="163.0" fitWidth="222.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                        <TextArea fx:id="instructionId" editable="false" layoutX="244.0" layoutY="154.0" prefHeight="204.0" prefWidth="435.0" wrapText="true" />
-                        <TextArea fx:id="descriptionId" editable="false" layoutX="244.0" layoutY="42.0" prefHeight="108.0" prefWidth="435.0" wrapText="true" />
-                        <TextArea fx:id="ingredientListId" editable="false" layoutX="17.0" layoutY="182.0" prefHeight="175.0" prefWidth="222.0" wrapText="true" />
-                        <ImageView fx:id="closeImageView" fitHeight="26.0" fitWidth="30.0" layoutX="692.0" layoutY="3.0" onMouseClicked="#closeRecipeView" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" onMousePressed="#closeButtonMousePressed" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/icon_close.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
          </children></StackPane>
    </children>
 </AnchorPane>
